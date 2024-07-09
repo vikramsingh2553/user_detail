@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:user_detail/user_model.dart';
 
-
 class EditUserScreen extends StatefulWidget {
   final UserModel user;
   final Function(UserModel) onUpdateUser;

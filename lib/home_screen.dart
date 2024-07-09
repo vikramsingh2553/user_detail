@@ -103,14 +103,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     margin: const EdgeInsets.symmetric(vertical: 8.0),
                     child: ListTile(
                       leading: CircleAvatar(
-                        backgroundImage: user.imageUrl != null && user.imageUrl!.isNotEmpty
-                            ? NetworkImage(user.imageUrl!)
-                            : null,
+                        backgroundImage:
+                            user.imageUrl != null && user.imageUrl!.isNotEmpty
+                                ? NetworkImage(user.imageUrl!)
+                                : null,
                         child: user.imageUrl == null || user.imageUrl!.isEmpty
                             ? const Icon(Icons.person)
                             : null,
                       ),
-
                       title: Text(
                         '${user.firstName ?? ''} ${user.lastName ?? ''}',
                         style: const TextStyle(

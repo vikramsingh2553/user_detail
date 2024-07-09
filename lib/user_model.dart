@@ -12,7 +12,9 @@ class UserModel {
     this.email,
     this.imageUrl,
   });
-  UserModel.fromJson(Map<String, dynamic> json, this.id, this.firstName, this.lastName, this.email, this.imageUrl) {
+
+  UserModel.fromJson(Map<String, dynamic> json, this.id, this.firstName,
+      this.lastName, this.email, this.imageUrl) {
     id = json['id'];
     email = json['email'];
     firstName = json['first_name'];
