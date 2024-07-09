@@ -44,7 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  void confirmDeleteUser(int id) {
+  void confirmDeleteUser(int? id) {
+    if (id == null) return;
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -104,9 +106,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: ListTile(
                       leading: CircleAvatar(
                         backgroundImage:
-                            user.imageUrl != null && user.imageUrl!.isNotEmpty
-                                ? NetworkImage(user.imageUrl!)
-                                : null,
+                        user.imageUrl != null && user.imageUrl!.isNotEmpty
+                            ? NetworkImage(user.imageUrl!)
+                            : null,
                         child: user.imageUrl == null || user.imageUrl!.isEmpty
                             ? const Icon(Icons.person)
                             : null,
@@ -149,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           IconButton(
                             icon: const Icon(Icons.delete, color: Colors.red),
                             onPressed: () {
-                              confirmDeleteUser(user.id as int);
+                              confirmDeleteUser(user.id);
                             },
                           ),
                         ],
