@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:user_detail/user_model.dart';
+import 'package:user_detail/model/user_model.dart';
 
 class UserApiService {
   final String baseUrl = 'https://reqres.in/api/users';
@@ -64,16 +64,16 @@ class UserApiService {
       throw Exception('Failed to update user');
     }
   }
-
-  Future<DeleteUserResponse> deleteUser(int userId) async {
-    final response = await http.delete(Uri.parse('$baseUrl/$userId'));
-    if (response.statusCode == 204) {
-      return DeleteUserResponse(message: 'User deleted successfully');
-    } else {
-      throw Exception('Failed to delete user');
-    }
+Future<DeleteUserResponse> deleteUser(int userId) async {
+  final response = await http.delete(Uri.parse('$baseUrl/$userId'));
+  if (response.statusCode == 204) {
+    return DeleteUserResponse(message: 'User deleted successfully');
+  } else {
+    throw Exception('Failed to delete user');
   }
 }
+}
+
 
 class DeleteUserResponse {
   String? message;

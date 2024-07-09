@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:user_detail/user_api_service.dart';
-import 'package:user_detail/user_detail_screen.dart';
-import 'package:user_detail/user_model.dart';
+import 'package:user_detail/service/user_api_service.dart';
+import 'package:user_detail/screen/user_detail_screen.dart';
+import 'package:user_detail/model/user_model.dart';
 
 import 'add_user_screen.dart';
 import 'edit_user_screen.dart';
@@ -59,8 +59,8 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           TextButton(
             onPressed: () {
+              Navigator.pop(context); // Close the dialog before deleting
               deleteUser(id);
-              Navigator.pop(context);
             },
             child: const Text('Delete'),
           ),
